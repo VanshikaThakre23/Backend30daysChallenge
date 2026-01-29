@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+
+    <div class="w-full h-full bg-gray-600 p-10 text-white">
+        <a href="/">Back To home</a>
+        <h2 class="text-2xl font-semibold mb-4 text-center">
+            All Users
+        </h2>
+
+        <div class="users flex gap-6 flex-wrap justify-center">
+
+            <% if(allusers.length> 0 ){ %>
+                <% allusers.forEach(function(user){ %>
+                    <div class="user w-62 p-4 bg-zinc-800 rounded-lg">
+                        <!-- <h2 class="text-2xl font-semibold mb-4 text-center">
+                            All Users
+                        </h2> -->
+
+                        <!-- Image on top -->
+                        <div class="img w-full h-52 rounded-lg bg-zinc-700 overflow-hidden">
+                            <img class="w-full h-full object-cover" src="<%= user.image %>" alt="no image">
+                        </div>
+
+                        <!-- Text below image -->
+                        <h3 class="text-xl mt-3 tracking-tight">
+                            <%= user.name %>
+                        </h3>
+
+                        <h5 class="text-zinc-400 text-sm">
+                            <%= user.email %>
+                        </h5>
+
+                        <div class="flex gap-3 mt-4">
+                            <a class="text-blue-400 hover:underline" href="">Edit User</a>
+                            <a class="text-red-400 hover:underline" href="/delete/<%= user._id %>">Delete User</a>
+                        </div>
+
+                    </div>
+                    <% }) %>
+                        <% } else{%>
+                            <h2 class="text-zinc-900 text-xl">No Users Yet</h2>
+                            <% }%>
+
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
